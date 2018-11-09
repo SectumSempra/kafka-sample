@@ -1,0 +1,26 @@
+server :
+  port: 17000 
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  thymeleaf:
+    cache: false
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:h2:mem:hr;DB_CLOSE_ON_EXIT=TRUE;INIT=RUNSCRIPT FROM 'classpath:scripts/load.sql';
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-db
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+  kafka:
+    bootstrap-servers: http://localhost:9092
