@@ -1,6 +1,9 @@
 server :
   port: 17000 
 spring:
+  devtools :
+    restart: 
+      log-condition-evaluation-delta: false
   jackson:
     date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
   thymeleaf:
@@ -24,3 +27,10 @@ spring:
       ddl-auto: none
   kafka:
     bootstrap-servers: http://localhost:9092
+#  bindings:
+#        greetings-in:
+#          destination: greetings
+#          contentType: application/json
+#        greetings-out:
+#          destination: greetings
+#          contentType: application/json
